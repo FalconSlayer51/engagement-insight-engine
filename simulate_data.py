@@ -27,7 +27,8 @@ def simulate_user(user_id):
             "posts_created": random.randint(0, 3),
             "buddies_interacted": random.randint(0, 5),
             "last_event_attended": random_date_within(90)
-        }
+        },
+        "peer_snapshot": simulate_peer_snapshot()
     }
 
 def simulate_peer_snapshot():
@@ -37,18 +38,18 @@ def simulate_peer_snapshot():
         "batch_event_attendance": {
             event: random.randint(3, 12) for event in event_pool
         },
-        "buddies_attending_events": random.sample(event_pool, k=1)
+        "buddies_attending_events": random.sample(event_pool, k=random.randint(1, len(event_pool)))
     }
 
 # Generate 2000 users and 3 peer snapshots
 users = [simulate_user(f"stu_{7023+i}") for i in range(2000)]
-peer_snapshots = [simulate_peer_snapshot() for i in range(10)]
+#peer_snapshots = [simulate_peer_snapshot() for i in range(10)]
 
 # Save to JSON files
 with open("simulated_profiles.json", "w") as f:
     json.dump(users, f, indent=2)
 
-with open("peer_snapshot.json", "w") as f:
-    json.dump(peer_snapshots, f, indent=2)
+# with open("peer_snapshot.json", "w") as f:
+#     json.dump(peer_snapshots, f, indent=2)
 
 print("✅ Simulated data generated successfully!")
