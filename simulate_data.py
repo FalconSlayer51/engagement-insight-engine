@@ -42,7 +42,7 @@ def simulate_peer_snapshot():
     }
 
 # Generate 2000 users and 3 peer snapshots
-users = [simulate_user(f"stu_{7023+i}") for i in range(2000)]
+users = [simulate_user(f"stu_{7023+i}") for i in range(10000)]
 #peer_snapshots = [simulate_peer_snapshot() for i in range(10)]
 
 # Save to JSON files
