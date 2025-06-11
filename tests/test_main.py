@@ -180,7 +180,7 @@ def test_multiple_nudges():
         },
         "peer_snapshot": {
             "batch_avg_projects": 3,
-            "batch_resume_uploaded_pct": 75,  # Above 70% threshold
+            "batch_resume_uploaded_pct": 81,  # Above 70% threshold
             "batch_event_attendance": {
                 "startup-meetup": 5,
                 "coding-contest": 11,

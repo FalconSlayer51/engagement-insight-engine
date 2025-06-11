@@ -78,7 +78,7 @@ async def generate_nudges(userInput: UserInput):
         "resume_uploaded": int(userInput.profile.resume_uploaded),
         "karma": userInput.profile.karma,
         "batch_resume_uploaded_pct": userInput.peer_snapshot.batch_resume_uploaded_pct,
-        "event_fomo_score": calculate_event_fomo_score(user_data, userInput.peer_snapshot.dict()) / 100,
+        "event_fomo_score": calculate_event_fomo_score(user_data, userInput.peer_snapshot.dict()),
     }
     X_resume = pd.DataFrame([[
         model_input["resume_uploaded"],
@@ -87,7 +87,7 @@ async def generate_nudges(userInput: UserInput):
     
     X_event = pd.DataFrame([[
         model_input["karma"],
-        model_input["event_fomo_score"] / 100
+        model_input["event_fomo_score"]
     ]], columns=['karma', 'event_fomo_score'])
     
 
