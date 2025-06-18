@@ -108,7 +108,7 @@ async def generate_nudges(userInput: UserInput):
             "priority": priorities["resume"]
         })
 
-    if  rule_event_nudge or model_event_pred == 1:
+    if rule_event_nudge or model_event_pred == 1:
         nudges.append({
             "type": "event",
             "title": f"{len(userInput.peer_snapshot.buddies_attending_events)} of your buddies are joining {userInput.peer_snapshot.buddies_attending_events[0]} event",
