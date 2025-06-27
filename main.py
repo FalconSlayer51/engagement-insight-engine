@@ -1,5 +1,6 @@
 import json
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import HTMLResponse
 import joblib
 import pandas as pd
 from pydantic import BaseModel
