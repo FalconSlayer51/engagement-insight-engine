@@ -1,3 +1,4 @@
+from datetime import date
 from fastapi.testclient import TestClient
 from unittest.mock import MagicMock
 import sys
@@ -221,7 +222,7 @@ def test_no_nudges():
             "login_streak": 7,
             "posts_created": 5,
             "buddies_interacted": 10,
-            "last_event_attended": "2025-06-07"
+            "last_event_attended": date.today().strftime("%Y-%m-%d")
         },
         "peer_snapshot": {
             "batch_avg_projects": 3,
